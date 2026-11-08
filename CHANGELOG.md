@@ -1,12 +1,27 @@
 # Changelog
 
-All notable OrderDesk milestones are listed below. The current maintained editions are v0.6.0 Local and v0.6.0 Cloud.
+All notable OrderDesk milestones are listed here. v0.6.0 Local is the recommended maintained edition. v0.6.0 Cloud is an optional beta pending live Supabase testing.
 
 ## 0.6.0 — GST release
-- Local edition remains fully local, with no login or backend.
-- Added GST calculations for inclusive/exclusive prices and CGST/SGST or IGST display.
-- Added an optional Cloud edition with owner accounts, per-owner data separation, sync, snapshots and the same GST calculator.
-- Added account-specific browser caches and revision-checked cloud saves.
+
+### Local edition
+- Preserves the v0.5 no-login, no-backend workflow.
+- Adds a GST calculator for GST-inclusive and GST-exclusive amounts.
+- Shows CGST + SGST/UTGST for intra-state supplies and IGST for inter-state supplies.
+- Retains v0.5 IndexedDB naming to preserve existing local browser data.
+- Updates the PWA cache version and includes offline GST calculation code.
+
+### Cloud edition (beta)
+- Rebuilds the owner-only v0.5 workflow as a separate optional cloud edition.
+- Adds owner sign-up/sign-in, account-specific local caches and Supabase workspace storage.
+- Adds owner-enforced RLS and revision-checked saves to prevent silent cross-device overwrites.
+- Adds manual/daily snapshots, restore controls and account deletion via a separately deployed Edge Function.
+- Includes the same GST calculator as Local.
+
+### Quality checks
+- GST helper tests cover exclusive/inclusive calculations, intra/inter-state breakdown, rounding and invalid input.
+- Inline JavaScript syntax checks pass in both editions.
+- Live Supabase authentication, account isolation, sync, conflict recovery, snapshots and account deletion still need testing against a configured project.
 
 ## 0.5.0 — Local Business Edition
 - Removed login and backend requirements from the recommended edition.
@@ -28,6 +43,6 @@ All notable OrderDesk milestones are listed below. The current maintained editio
 - Added partial-payment tracking, customer summaries, delivery visibility and WhatsApp drafts.
 
 ## 0.1.0 — First prototype
-- Basic local order dashboard and order-status tracking.
+- Basic local order dashboard, order-status tracking and CSV export.
 
-Earlier build snapshots are preserved in the complete source package under `archive/`.
+Historical snapshots are preserved in [archive/README.md](archive/README.md) and the [historical release ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
