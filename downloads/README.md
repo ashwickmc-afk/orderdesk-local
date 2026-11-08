@@ -1,9 +1,23 @@
-# OrderDesk source packages
+# Complete OrderDesk source package
 
-The repository's current maintained source and documentation are available here:
+The complete v0.6.0 source bundle includes:
+- Maintained Local and Cloud applications
+- GST calculator and automated tests
+- Setup and GST guidance
+- Contribution, security and code-of-conduct policies
+- Historical snapshots for v0.1 through v0.5
+- GitHub templates and CI configuration
 
-- [Complete source package](OrderDesk-v0.6.0-GitHub-Source.zip)
+## Download and verify
 
-After downloading and extracting it, open `apps/local` for the no-login Local edition or `apps/cloud` for the optional Supabase Cloud edition. Historical snapshots are under `archive/`.
+From a clone of this repository, run:
 
-The archive includes source, tests, setup documentation, security notes, GitHub workflows and version history. No private customer records or live backend credentials are included.
+```bash
+python downloads/download_source.py
+```
+
+The script downloads the source parts from this folder, verifies the SHA-256 checksum and ZIP integrity, then extracts the full project into `OrderDesk-v0.6.0-source/`.
+
+Open `OrderDesk-v0.6.0-source/apps/local` for the simple no-login edition or `apps/cloud` for the optional Supabase Cloud edition.
+
+No private business data, credentials or live backend keys are included.
