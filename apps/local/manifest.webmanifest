@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "OrderDesk — Simple Business Workspace",
+  "short_name": "OrderDesk",
+  "description": "A private local workspace for orders, payments, expenses, profit and GST calculations.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#f6f7fb",
+  "orientation": "any",
+  "icons": [
+    { "src": "./public/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
