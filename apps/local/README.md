@@ -2,7 +2,7 @@
 
 **Keep it simple. Keep it better.**
 
-This is the recommended edition for most owners. It has no login, no cloud backend and no mandatory setup. Orders, customers and money records stay in the current browser profile on the current device.
+This is the recommended edition for most owners. It has no login, no cloud backend and no mandatory account. Orders, customers and money records stay in the current browser profile on the current device.
 
 ## Included
 - Order and payment tracking
@@ -12,13 +12,9 @@ This is the recommended edition for most owners. It has no login, no cloud backe
 - Local JSON backup/restore and CSV exports
 - Responsive PWA with light/dark mode
 
-## Download and run
-The full app source is in the repository's complete source package:
+## Get the complete source
+Clone or download the repository, then run `python downloads/download_source.py` from its root. This verifies and extracts the complete application and historical versions into `OrderDesk-v0.6.0-source/`. Open `OrderDesk-v0.6.0-source/apps/local/` and follow its Windows launcher or the [setup guide](../../docs/SETUP.md#local-edition).
 
-[Download the v0.6.0 source package](../../downloads/OrderDesk-v0.6.0-GitHub-Source.zip)
+No login, API key or cloud account is required. For device-to-device transfer, use Backup/Restore.
 
-After extracting the ZIP, open `apps/local` and follow the included `START_ORDERDESK_WINDOWS.bat` or setup guide.
-
-No login, API key or server account is required. For device-to-device transfer, use Backup/Restore.
-
-See [the root setup guide](../../docs/SETUP.md#local-edition) and [GST notes](../../docs/GST-RATES.md).
+See the [GST guidance](../../docs/GST-RATES.md).
