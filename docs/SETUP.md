@@ -10,38 +10,25 @@ Use the [direct GitHub source ZIP download](https://github.com/ashwickmc-afk/ord
 - Optional Cloud beta: `apps/cloud`
 - Historical milestones: `archive/releases`
 
-## Local edition — Windows (recommended)
+## Local edition — the easy way
 
-1. Extract the downloaded ZIP.
-2. Open `apps/local`.
-3. Install Python 3 if it is not already installed. Python is used only to start a local web server; OrderDesk itself has no Python package dependencies.
-4. Double-click `START_ORDERDESK_WINDOWS.bat`.
-5. A command window starts the local server and opens `http://localhost:8765` in your browser.
-6. Keep the command window open while using OrderDesk. Closing it stops the local server.
-7. Start entering orders. There is no sign-in, account, API key, Supabase project or mandatory setup.
+1. Download the ZIP from the repository's main README.
+2. Extract the ZIP.
+3. Open the extracted folder.
+4. Double-click **`OrderDesk.html`**.
+5. OrderDesk opens in your default browser. Start using it.
 
-## Local edition — macOS / Linux
+You do not need Python, Node.js, a command prompt, an installation wizard or an account. The single `OrderDesk.html` file contains the Local app and GST calculator.
 
-1. Open a terminal in the extracted `apps/local` folder.
-2. Run:
-   ```bash
-   python3 -m http.server 8765 --bind 127.0.0.1
-   ```
-3. Open `http://localhost:8765`.
+### Browser and data
 
-Opening `index.html` directly is supported for basic use, but a local HTTP server is recommended for consistent browser storage and PWA behaviour.
+Use a recent Chrome, Edge, Firefox or Safari browser. OrderDesk saves records in browser storage on the current device. Local-file storage behaviour varies between browsers and may be blocked by privacy settings. The app displays a warning if it cannot save.
 
-### Install on phones and tablets
+Use **Backup** regularly. To transfer data from an older copy or to another device, use **Backup** in the old copy, then **Restore** in the new one. The Local edition does not sync automatically between devices.
 
-To install the Local app as a PWA on another device, host the contents of `apps/local` on an HTTPS static host. Open the HTTPS address in a supported browser and choose **Install app** or **Add to Home Screen**. Static hosting is not a backend: each device keeps its own records. Use Backup and Restore to transfer records between devices.
+### Phone and tablet
 
-### Local data and backups
-
-- Use **Backup** to download a JSON file.
-- Use **Restore** to restore a JSON backup or a supported older CSV export.
-- Keep backups separately from the device running OrderDesk.
-- Clearing browser/site data, resetting the device or losing the device can remove local records.
-- v0.6 Local keeps the v0.5 IndexedDB database name so the same browser profile can continue using its existing records.
+The one-file double-click method is intended for computers. On phones and tablets, open the Local edition from a secure HTTPS static-hosting address and use the browser's **Install app** or **Add to Home Screen** option. Static hosting is not a backend; each device still stores its own records. Use Backup and Restore to transfer them.
 
 ## Cloud edition — optional beta
 
