@@ -2,7 +2,13 @@
 
 **Keep it simple. Keep it better.**
 
-The recommended edition for owners who want business records to remain on their own device. No sign-in, backend, API key, Supabase project or mandatory setup.
+This is the recommended no-login edition for business owners. The quickest way to start is the single file at the repository root:
+
+1. Download the ZIP from the main [README](../../).
+2. Extract it.
+3. Double-click **`OrderDesk.html`** in the extracted folder.
+
+It opens in your default browser. No command prompt, Python, Node.js, installation or account is required.
 
 ## Features
 
@@ -12,30 +18,11 @@ The recommended edition for owners who want business records to remain on their 
 - Product costing and profit-margin calculator.
 - GST-inclusive/exclusive calculator with CGST + SGST/UTGST or IGST breakdown.
 - Quick calculator, light/dark theme, CSV exports and JSON backup/restore.
-- Responsive PWA app shell for desktop, phone and tablet browsers.
 
-## Run on Windows
+## Browser and data notes
 
-1. Extract the Local ZIP or the complete repository ZIP.
-2. Open `apps/local`.
-3. Install Python 3 if it is not already installed.
-4. Double-click `START_ORDERDESK_WINDOWS.bat`.
-5. Keep the command window open. The app opens at `http://localhost:8765`.
+Use a recent Chrome, Edge, Firefox or Safari browser. The app stores records in browser storage on the current device. Browser privacy settings can block local storage, and browsers do not define identical storage behaviour for local HTML files. OrderDesk displays a warning if saving is unavailable.
 
-Or run `python -m http.server 8765 --bind 127.0.0.1` from this folder. For basic use, `index.html` can also be opened directly; a local server is recommended for PWA and storage behaviour.
+Use **Backup** regularly and keep the downloaded JSON backup somewhere safe. To move records to a new copy or another device, use **Backup** in the old copy and **Restore** in the new one. The app does not synchronise Local records between devices.
 
-## macOS / Linux
-
-Open a terminal in this folder and run `python3 -m http.server 8765 --bind 127.0.0.1`, then open `http://localhost:8765`.
-
-## Local data
-
-Records are stored in the current browser profile on the current device. They do not automatically synchronise to another device. Use Backup and Restore to transfer records. Clearing browser/site data or losing the device can remove local records, so keep a separate backup. v0.6 retains the v0.5 IndexedDB database name to preserve existing local records in the same browser profile.
-
-## Phone and tablet installation
-
-For PWA installation on another device, host the contents of this folder on HTTPS, open the address in a supported browser and choose **Install app** or **Add to Home Screen**. Static hosting does not synchronise data; use Backup and Restore to move data between devices.
-
-## GST note
-
-The GST calculator performs arithmetic only. You must enter the applicable tax rate and supply type. It does not classify goods/services, validate HSN/SAC, determine exemptions or file returns. See [GST-RATES.md](../../docs/GST-RATES.md).
+The root `OrderDesk.html` file is self-contained. `index.html`, the manifest and service worker in this folder are the maintained web/PWA source for HTTPS hosting and development.
