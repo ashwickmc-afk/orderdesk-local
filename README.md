@@ -30,7 +30,9 @@ OrderDesk follows five simple rules:
 
 ## Download and open OrderDesk
 
-<text>**No installation. No command prompt. No Python. No account.**</text>
+*On a Windows or Mac computer:*
+
+**No installation. No command prompt. No Python. No account.**
 
 1. Click the big **Download ZIP** link at the top of this README.
 2. Extract the ZIP you downloaded.
@@ -43,7 +45,6 @@ The single `OrderDesk.html` file contains the Local app and its GST calculator. 
 **Use the Local edition for the simple experience.** The Cloud edition is separate and optional; it requires a Supabase account/project and technical setup.
 
 **Browser note:** Use a recent version of Chrome, Edge, Firefox or Safari. Local-file storage rules differ between browsers and can be blocked by privacy settings. OrderDesk displays a warning if it cannot save locally. Use **Backup** regularly to protect your records.
- 
 ## Choose your edition
 
 | | Local edition | Cloud edition |
