@@ -8,7 +8,7 @@
 
 A practical workspace for independent business owners who want to manage orders, payments, expenses and pricing without wrestling with complicated software.
 
-[**Download Local v0.6.0**](downloads/OrderDesk-v0.6.0-Local.zip) · [**Download Cloud v0.6.0 Beta**](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) · [Historical versions v0.1–v0.5](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) · [Complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
+[**Download OrderDesk source ZIP**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1) · [Local edition](apps/local/) · [Cloud edition — beta](apps/cloud/) · [Version history](archive/README.md)
 
 [Setup guide](docs/SETUP.md) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/ashwickmc-afk/orderdesk-local/issues)
 
@@ -32,15 +32,13 @@ OrderDesk follows five simple rules:
 
 **Recommended: start with the Local edition.**
 
-1. Download the [Local ZIP](downloads/OrderDesk-v0.6.0-Local.zip), or the [complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1).
-2. Extract the ZIP.
-3. Open `apps/local` inside the complete repository, or open the extracted Local package folder.
-4. On Windows, double-click `START_ORDERDESK_WINDOWS.bat`. Python 3 is required.
-5. The app opens at `http://localhost:8765`.
+1. Click the [direct source ZIP download](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1).
+2. Extract the downloaded ZIP.
+3. Open `apps/local` for the recommended no-login edition, or `apps/cloud` for the optional beta.
+4. On Windows, open `apps/local/START_ORDERDESK_WINDOWS.bat`. Python 3 is required.
+5. The Local app opens at `http://localhost:8765`.
 
-There is no login, backend, API key or cloud setup in Local.
-
-Other downloads: [Cloud edition ZIP — beta](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) · [Historical versions v0.1–v0.5](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
+There is no login, backend, API key or cloud setup in Local. Cloud has its own setup and must be configured separately; see [docs/SETUP.md](docs/SETUP.md).
 
 ## Choose your edition
 
@@ -81,18 +79,18 @@ More details: [docs/GST-RATES.md](docs/GST-RATES.md).
 
 ## Versions and project history
 
-Earlier versions are preserved in the [historical releases ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip). v0.6.0 Local is the recommended maintained edition; v0.6.0 Cloud is an optional beta pending live Supabase testing.
+Older source snapshots are preserved in `archive/releases/` inside the complete source ZIP. v0.6.0 Local is the recommended maintained edition; v0.6.0 Cloud is an optional beta pending live Supabase testing.
 
 | Version | Milestone | Main changes | Download |
 |---|---|---|---|
-| **0.1.0** | First prototype | Local order dashboard, basic order entry, status tracking and CSV export. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.2.0** | Expanded order manager | Improved readability, dark mode, partial payments, customer directory, WhatsApp drafts, delivery tracking and backup/restore. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.3.0** | Installable PWA | Responsive app for PC, laptop, tablet and phone; manifest, offline app shell and app icons. Internal order IDs removed from WhatsApp drafts. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.4.0** | Cloud experiment | First owner login, Supabase storage and cross-device sync prototype. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.4.1** | Login repair | Fixed form handling and asset paths discovered in the early cloud experiment. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.5.0** | Local Business Edition | Removed login/backend; added Money Book, profit and quick calculators, payment follow-up and local backups. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
-| **0.6.0 Local** | GST release | Kept the local-first workflow and added inclusive/exclusive GST arithmetic with intra/inter-state breakdown. | [Local ZIP](downloads/OrderDesk-v0.6.0-Local.zip) |
-| **0.6.0 Cloud Beta** | Optional cloud edition | v0.5-style owner workspace, owner-only cloud data, revision-checked sync, cloud snapshots and GST calculator. | [Cloud ZIP](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) |
+| **0.1.0** | First prototype | Local order dashboard, basic order entry, status tracking and CSV export. | [Archive](archive/releases/) |
+| **0.2.0** | Expanded order manager | Improved readability, dark mode, partial payments, customer directory, WhatsApp drafts, delivery tracking and backup/restore. | [Archive](archive/releases/) |
+| **0.3.0** | Installable PWA | Responsive app for PC, laptop, tablet and phone; manifest, offline app shell and app icons. Internal order IDs removed from WhatsApp drafts. | [Archive](archive/releases/) |
+| **0.4.0** | Cloud experiment | First owner login, Supabase storage and cross-device sync prototype. | [Archive](archive/releases/) |
+| **0.4.1** | Login repair | Fixed form handling and asset paths discovered in the early cloud experiment. | [Archive](archive/releases/) |
+| **0.5.0** | Local Business Edition | Removed login/backend; added Money Book, profit and quick calculators, payment follow-up and local backups. | [Archive](archive/releases/) |
+| **0.6.0 Local** | GST release | Kept the local-first workflow and added inclusive/exclusive GST arithmetic with intra/inter-state breakdown. | [Local source](apps/local/) |
+| **0.6.0 Cloud Beta** | Optional cloud edition | v0.5-style owner workspace, owner-only cloud data, revision-checked sync, cloud snapshots and GST calculator. | [Cloud source](apps/cloud/) |
 
 See [CHANGELOG.md](CHANGELOG.md) and [archive/README.md](archive/README.md).
 
