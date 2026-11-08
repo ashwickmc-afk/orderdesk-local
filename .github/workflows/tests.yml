@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  gst-tests:
+  local-app:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,3 +16,5 @@ jobs:
         run: node --test apps/local/tests/*.test.cjs
       - name: Check GST helper syntax
         run: node --check apps/local/gst-calculator.js
+      - name: Check one-file browser launcher
+        run: node tools/check-standalone.cjs
