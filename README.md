@@ -8,7 +8,7 @@
 
 A practical workspace for independent business owners who want to manage orders, payments, expenses and pricing without wrestling with complicated software.
 
-[**Download OrderDesk source ZIP**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1) · [Local edition](apps/local/) · [Cloud edition — beta](apps/cloud/) · [Version history](archive/README.md)
+[**Download ZIP — extract and double-click `OrderDesk.html`**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1) · [Cloud edition — optional beta](apps/cloud/) · [Version history](archive/README.md)
 
 [Setup guide](docs/SETUP.md) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/ashwickmc-afk/orderdesk-local/issues)
 
@@ -28,18 +28,22 @@ OrderDesk follows five simple rules:
 - **Keep control with the owner.** Customers do not need accounts or access to the workspace.
 - **Offer a choice.** Use Local for simplicity or Cloud when cross-device sync is worth the extra setup.
 
-## Download OrderDesk
+## Download and open OrderDesk
 
-**Recommended: start with the Local edition.**
+<text>**No installation. No command prompt. No Python. No account.**</text>
 
-1. Click the [direct source ZIP download](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1).
-2. Extract the downloaded ZIP.
-3. Open `apps/local` for the recommended no-login edition, or `apps/cloud` for the optional beta.
-4. On Windows, open `apps/local/START_ORDERDESK_WINDOWS.bat`. Python 3 is required.
-5. The Local app opens at `http://localhost:8765`.
+1. Click the big **Download ZIP** link at the top of this README.
+2. Extract the ZIP you downloaded.
+3. Open the extracted folder and double-click **`OrderDesk.html`**.
 
-There is no login, backend, API key or cloud setup in Local. Cloud has its own setup and must be configured separately; see [docs/SETUP.md](docs/SETUP.md).
+OrderDesk opens in your default browser. That is all you need to do.
 
+The single `OrderDesk.html` file contains the Local app and its GST calculator. You do not need to open the `apps` folder, install anything, connect to the internet, or run a command.
+
+**Use the Local edition for the simple experience.** The Cloud edition is separate and optional; it requires a Supabase account/project and technical setup.
+
+**Browser note:** Use a recent version of Chrome, Edge, Firefox or Safari. Local-file storage rules differ between browsers and can be blocked by privacy settings. OrderDesk displays a warning if it cannot save locally. Use **Backup** regularly to protect your records.
+ 
 ## Choose your edition
 
 | | Local edition | Cloud edition |
@@ -100,7 +104,7 @@ See [CHANGELOG.md](CHANGELOG.md) and [archive/README.md](archive/README.md).
 
 Records stay in the browser profile on the current device. They do not automatically sync to a phone or another computer. Use **Backup** on one device and **Restore** on another to transfer records. Clearing browser data or resetting the device can remove local records, so keep a separate backup. When you deliberately open a WhatsApp draft, review it before sending.
 
-The Local v0.6 app keeps the same IndexedDB database name as v0.5 so an existing v0.5 workspace in the same browser profile remains accessible.
+The app keeps the v0.5 IndexedDB database name. However, browsers may keep storage separately for different local file paths. To move existing records from an older copy, use its **Backup** button and then **Restore** in the new copy.
 
 ### Cloud edition
 
@@ -116,7 +120,7 @@ Run the GST tests with:
 node --test apps/local/tests/*.test.cjs
 ```
 
-The Local edition has no runtime dependency installation. Cloud calls Supabase Auth and REST APIs directly from the browser using a public publishable key; RLS is the security boundary.
+The one-file Local edition has no runtime dependencies or setup step. Cloud calls Supabase Auth and REST APIs directly from the browser using a public publishable key; RLS is the security boundary.
 
 ## Contributing
 
