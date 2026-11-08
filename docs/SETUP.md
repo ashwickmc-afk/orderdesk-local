@@ -1,157 +1,125 @@
-# Setup guide
+# OrderDesk setup guide
 
-Choose one path. Most business owners should start with the **Local edition**.
+**Start with Local unless you specifically need cloud synchronisation.** Both editions are intended for the business owner; customers do not need accounts.
 
-## Requirements
+## Download
 
-### Local edition
-- A recent desktop or mobile browser (Chrome, Edge, Firefox or Safari).
-- Python 3 for the included Windows launcher or local HTTP server.
-- No npm install or API credentials.
+Use one of these downloads:
 
-### Cloud edition
-- Node.js 22.12 or newer and npm.
-- A Supabase project.
-- Supabase CLI to deploy the account-deletion function.
+- [Complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
+- [Local edition ZIP](../downloads/OrderDesk-v0.6.0-Local.zip) — recommended.
+- [Cloud edition ZIP (beta)](../downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) — optional, advanced setup.
+- [Historical versions v0.1–v0.5](../downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
 
-## First: download the complete source
+Extract the ZIP before running the app. The Local source is in `apps/local`; the optional Cloud source is in `apps/cloud`; earlier versions are preserved in `archive/releases`.
 
-1. Clone this repository or download its GitHub ZIP.
-2. Open a terminal in the repository root.
-3. Run:
-   ```bash
-   python downloads/download_source.py
-   ```
-4. The script downloads the source parts, verifies the complete archive's SHA-256 hash and ZIP integrity, then extracts it into `OrderDesk-v0.6.0-source/`.
-5. Open that extracted folder for the actual Local and Cloud app source.
+## Local edition — Windows (recommended)
 
-## Local edition — Windows
-
-1. Open `OrderDesk-v0.6.0-source/apps/local`.
-2. Make sure Python 3 is installed.
-3. Double-click `START_ORDERDESK_WINDOWS.bat`.
-4. A terminal window starts the local web server. Your browser should open `http://localhost:8765`.
-5. Keep the terminal window open while using OrderDesk. Closing it stops the local server.
-6. Start entering orders. There is no login, account, API key or cloud configuration.
+1. Extract the Local ZIP or complete repository ZIP.
+2. Open the `apps/local` folder. (When using the standalone Local ZIP, open the extracted package's top-level folder.)
+3. Install Python 3 if it is not already installed. Python is only used to start a local web server; OrderDesk itself has no Python package dependencies.
+4. Double-click `START_ORDERDESK_WINDOWS.bat`.
+5. A command window starts the local server and opens `http://localhost:8765` in your browser.
+6. Keep the command window open while using OrderDesk. Closing it stops the local server.
+7. Start adding orders. There is no sign-in, account, API key, Supabase project or mandatory setup.
 
 ## Local edition — macOS / Linux
 
-1. Run the source download/extraction step above.
-2. Open a terminal in `OrderDesk-v0.6.0-source/apps/local`.
-3. Start the server:
+1. Open a terminal in the extracted `apps/local` folder (or the extracted Local package folder).
+2. Run:
    ```bash
    python3 -m http.server 8765 --bind 127.0.0.1
    ```
-4. Open `http://localhost:8765`.
+3. Open `http://localhost:8765`.
 
-You can also open `index.html` directly for basic use, but a local HTTP server is recommended for consistent browser storage and PWA features.
+You can open `index.html` directly for basic use, but a local HTTP server is recommended for consistent browser storage and PWA behaviour.
 
-### Install as an app
+### Install on phones and tablets
 
-For PWA installation, host the Local edition on HTTPS (or use localhost for testing). Open the hosted address in a supported browser and choose **Install app** or **Add to Home Screen**. Static hosting is not a database: every device keeps separate local records.
+To install the Local app as a PWA on another device, host the contents of `apps/local` on an HTTPS static host. Open the HTTPS address in a supported browser and choose **Install app** or **Add to Home Screen**. Static hosting is not a backend: each device keeps its own records. Use Backup and Restore to transfer records between devices.
 
 ### Local data and backups
 
 - Use **Backup** to download a JSON file.
-- Use **Restore** to restore a JSON backup or supported legacy CSV export.
-- Store backups somewhere safe, separate from the device running OrderDesk.
-- To move to another device, open the same Local edition there and restore the JSON file.
-- Avoid clearing browser data unless you have a recent backup.
+- Use **Restore** to restore a JSON backup or a supported older CSV export.
+- Keep backups separately from the device running OrderDesk.
+- Clearing browser/site data, resetting the device or losing the device can remove local records.
+- v0.6 Local keeps the v0.5 IndexedDB database name so the same browser profile can continue using its existing records.
 
----
+## Cloud edition — optional beta
 
-## Cloud edition
+Cloud is more advanced. It needs a Supabase project, one-time database setup and configuration. Do not use real customer/business data until the checks below pass.
 
-Cloud is optional and requires a one-time developer setup. Most owners do not need it.
+### 1. Create a Supabase project and database
 
-### 1. Create a Supabase project
+1. Create a Supabase project.
+2. Open the SQL Editor.
+3. Run `apps/cloud/supabase/migrations/202611080001_orderdesk_cloud.sql`.
+4. Confirm `orderdesk_workspaces` and `orderdesk_backups` exist, RLS is enabled, and the `orderdesk_save_workspace(jsonb, bigint)` RPC exists.
 
-1. Create a project in the Supabase dashboard.
-2. Wait for the project to finish provisioning.
-3. Open the project's API settings.
-4. Copy the project URL and **publishable** key (or legacy anon key).
-5. Never use the `service_role` / secret key in browser configuration or commit it to GitHub.
-
-### 2. Create the database tables and policies
-
-1. Open the Supabase SQL Editor.
-2. Open `OrderDesk-v0.6.0-source/apps/cloud/supabase/migrations/202611080001_orderdesk_cloud.sql`.
-3. Paste the complete migration into the SQL Editor and run it.
-4. Confirm the `orderdesk_workspaces` and `orderdesk_backups` tables exist and RLS is enabled.
-5. Confirm the `orderdesk_save_workspace(jsonb, bigint)` RPC is listed.
-
-### 3. Configure email authentication
+### 2. Configure authentication
 
 1. In Supabase, open **Authentication → URL Configuration**.
-2. Add your local development URL (for example `http://localhost:5173`) to allowed redirect URLs.
-3. Add your production HTTPS URL before deployment.
-4. Keep email confirmation enabled for public sign-ups unless you have a deliberate reason and a secure policy to change it.
+2. Add your local development URL (for example `http://localhost:8765`) and the final HTTPS hosting URL to allowed redirect URLs.
+3. Set the Site URL to the production HTTPS address before public use.
+4. Keep email confirmation enabled unless you have deliberately reviewed the account policy.
 
-### 4. Configure environment variables
+### 3. Add the public browser configuration
 
-1. Open `OrderDesk-v0.6.0-source/apps/cloud`.
-2. Copy `.env.example` to `.env.local`.
-3. Add your project URL and publishable key:
-   ```dotenv
-   VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-   VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+1. Open `apps/cloud`.
+2. Copy `cloud-config.example.js` and name the copy `cloud-config.js`.
+3. Enter only the Supabase project URL and the **publishable** key (or legacy anon key):
+   ```js
+   window.ORDERDESK_CLOUD_CONFIG = {
+     supabaseUrl: 'https://YOUR_PROJECT.supabase.co',
+     publishableKey: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
+   };
    ```
-4. Save the file. `.env.local` is ignored by Git. Do not commit it.
+4. Never place a service-role/secret key in `cloud-config.js`, browser JavaScript or GitHub. The file is ignored by Git.
 
-The publishable key is designed for client use; database RLS is the security boundary. A service-role key is never needed in the browser.
+### 4. Run or host Cloud
 
-### 5. Install dependencies and run the app
+For local testing, open a terminal in `apps/cloud` and run:
 
 ```bash
-npm install
-npm run dev
+python -m http.server 8765 --bind 127.0.0.1
 ```
 
-Run these commands from the Cloud folder. Open the local URL printed by Vite (normally `http://localhost:5173`). Create an owner account, confirm the email if prompted, then sign in.
+Open `http://localhost:8765`, create a disposable owner account, confirm the email if prompted, and sign in. For cross-device use, host the contents of `apps/cloud` on HTTPS and update the Supabase redirect URLs to match.
 
-### 6. Deploy the account-deletion function
+### 5. Enable account deletion
 
-1. Install the Supabase CLI using the official Supabase instructions.
-2. Sign in and link the local project:
+The Cloud edition's delete-account button requires the separately deployed Supabase Edge Function at `apps/cloud/supabase/functions/delete-account/index.ts`.
+
+1. Install the Supabase CLI following the official Supabase documentation.
+2. Sign in and link the project:
    ```bash
    npx supabase login
    npx supabase link --project-ref YOUR_PROJECT_REF
    ```
-3. Set the service-role key as a server-side Edge Function secret (never add it to `.env.local`):
+3. Configure the server-side secret. Do not put it in `cloud-config.js`:
    ```bash
    npx supabase secrets set SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVICE_ROLE_KEY
    ```
-4. Deploy the function:
+4. Deploy:
    ```bash
    npx supabase functions deploy delete-account
    ```
 
-Supabase provides its URL and anon key to Edge Functions. Never expose the service-role key to the browser.
+### 6. Cloud test checklist
 
-### 7. Build for hosting
+Use fictional data and two disposable owner accounts:
 
-```bash
-npm run build
-```
+1. Register owner A and owner B separately.
+2. Add an order to owner A and verify owner B cannot read it.
+3. Sign in to owner A on a second browser/device and verify the same data appears.
+4. Make simultaneous changes from two devices and verify stale revisions are stopped rather than silently overwritten.
+5. Create and restore a cloud snapshot.
+6. Test password recovery and account deletion with a disposable account.
+7. Inspect the browser console and Supabase logs.
 
-Upload the contents of `dist/` to an HTTPS static host. Set the same Vite environment variables in the hosting provider before building. Configure the production URL in Supabase redirect settings.
-
-### 8. Test account isolation and backups
-
-Before entering real business data:
-
-1. Create two disposable test owner accounts with fictional data.
-2. Add an order to account A and verify account B cannot see it.
-3. Sign in to account A from a second browser/device and verify sync.
-4. Make an offline change, reconnect, and verify it syncs.
-5. Create a cloud snapshot and restore it in a test account.
-6. Test account deletion using a disposable account.
-7. Inspect browser console and Supabase logs.
-
-Do not use real customer data until these checks pass.
-
----
+Cloud is a beta until these live tests pass. Snapshots are best-effort application restore points; they do not replace provider-level database backups. Keep a separate JSON backup.
 
 ## GST calculator
 
-The Local and Cloud editions share the same GST arithmetic helper. Select the rate that actually applies to the supply, HSN/SAC classification and date. The calculator does not classify products, validate codes, decide exemptions or file returns. Read [GST-RATES.md](GST-RATES.md) and verify current official guidance before using a result for tax purposes.
+Both editions include the same GST arithmetic helper. The owner enters the applicable rate and chooses GST-inclusive/exclusive pricing and intra-/inter-state supply. The tool does not determine tax classification, validate HSN/SAC codes, decide exemptions, calculate input tax credit or file returns. Verify the current treatment using official references in [GST-RATES.md](GST-RATES.md) before using a result on an invoice.
