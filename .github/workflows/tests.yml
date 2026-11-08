@@ -1,0 +1,18 @@
+name: OrderDesk checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  gst-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run GST calculator tests
+        run: node --test apps/local/tests/*.test.cjs
+      - name: Check GST helper syntax
+        run: node --check apps/local/gst-calculator.js
