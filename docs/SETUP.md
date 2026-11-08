@@ -1,38 +1,35 @@
 # OrderDesk setup guide
 
-**Start with Local unless you specifically need cloud synchronisation.** Both editions are intended for the business owner; customers do not need accounts.
+**Start with Local unless you specifically need cross-device cloud synchronisation.** Both editions are for the business owner; customers do not need accounts.
 
-## Download
+## Download the project
 
-Use one of these downloads:
+Use the [direct GitHub source ZIP download](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1). Extract it before running the app.
 
-- [Complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
-- [Local edition ZIP](../downloads/OrderDesk-v0.6.0-Local.zip) — recommended.
-- [Cloud edition ZIP (beta)](../downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) — optional, advanced setup.
-- [Historical versions v0.1–v0.5](../downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
-
-Extract the ZIP before running the app. The Local source is in `apps/local`; the optional Cloud source is in `apps/cloud`; earlier versions are preserved in `archive/releases`.
+- Recommended no-login app: `apps/local`
+- Optional Cloud beta: `apps/cloud`
+- Historical milestones: `archive/releases`
 
 ## Local edition — Windows (recommended)
 
-1. Extract the Local ZIP or complete repository ZIP.
-2. Open the `apps/local` folder. (When using the standalone Local ZIP, open the extracted package's top-level folder.)
-3. Install Python 3 if it is not already installed. Python is only used to start a local web server; OrderDesk itself has no Python package dependencies.
+1. Extract the downloaded ZIP.
+2. Open `apps/local`.
+3. Install Python 3 if it is not already installed. Python is used only to start a local web server; OrderDesk itself has no Python package dependencies.
 4. Double-click `START_ORDERDESK_WINDOWS.bat`.
 5. A command window starts the local server and opens `http://localhost:8765` in your browser.
 6. Keep the command window open while using OrderDesk. Closing it stops the local server.
-7. Start adding orders. There is no sign-in, account, API key, Supabase project or mandatory setup.
+7. Start entering orders. There is no sign-in, account, API key, Supabase project or mandatory setup.
 
 ## Local edition — macOS / Linux
 
-1. Open a terminal in the extracted `apps/local` folder (or the extracted Local package folder).
+1. Open a terminal in the extracted `apps/local` folder.
 2. Run:
    ```bash
    python3 -m http.server 8765 --bind 127.0.0.1
    ```
 3. Open `http://localhost:8765`.
 
-You can open `index.html` directly for basic use, but a local HTTP server is recommended for consistent browser storage and PWA behaviour.
+Opening `index.html` directly is supported for basic use, but a local HTTP server is recommended for consistent browser storage and PWA behaviour.
 
 ### Install on phones and tablets
 
@@ -48,14 +45,14 @@ To install the Local app as a PWA on another device, host the contents of `apps/
 
 ## Cloud edition — optional beta
 
-Cloud is more advanced. It needs a Supabase project, one-time database setup and configuration. Do not use real customer/business data until the checks below pass.
+Cloud is more advanced. It needs a Supabase project, one-time database setup and configuration. It has not been tested against your live Supabase project. Use fictional records until the tests below pass.
 
 ### 1. Create a Supabase project and database
 
 1. Create a Supabase project.
 2. Open the SQL Editor.
 3. Run `apps/cloud/supabase/migrations/202611080001_orderdesk_cloud.sql`.
-4. Confirm `orderdesk_workspaces` and `orderdesk_backups` exist, RLS is enabled, and the `orderdesk_save_workspace(jsonb, bigint)` RPC exists.
+4. Confirm `orderdesk_workspaces` and `orderdesk_backups` exist, Row Level Security (RLS) is enabled, and the `orderdesk_save_workspace(jsonb, bigint)` RPC exists.
 
 ### 2. Configure authentication
 
@@ -122,4 +119,4 @@ Cloud is a beta until these live tests pass. Snapshots are best-effort applicati
 
 ## GST calculator
 
-Both editions include the same GST arithmetic helper. The owner enters the applicable rate and chooses GST-inclusive/exclusive pricing and intra-/inter-state supply. The tool does not determine tax classification, validate HSN/SAC codes, decide exemptions, calculate input tax credit or file returns. Verify the current treatment using official references in [GST-RATES.md](GST-RATES.md) before using a result on an invoice.
+Both editions include the same GST arithmetic helper. The owner enters the applicable rate and chooses GST-inclusive/exclusive pricing and intra-/inter-state supply. The tool does not determine tax classification, validate HSN/SAC codes, decide exemptions, calculate input tax credit or file returns. Verify current treatment using official references in [GST-RATES.md](GST-RATES.md) before using a result on an invoice.
