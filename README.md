@@ -6,9 +6,11 @@
 
 **Keep it simple. Keep it better.**
 
-A small, open-source business workspace for independent owners who want to keep orders, payments, expenses and pricing under control — without learning complicated business software.
+A practical workspace for independent business owners who want to manage orders, payments, expenses and pricing without wrestling with complicated software.
 
-[Get started](docs/SETUP.md) · [Local edition](apps/local/) · [Cloud edition](apps/cloud/) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/ashwickmc-afk/orderdesk-local/issues)
+[**Download Local v0.6.0**](downloads/OrderDesk-v0.6.0-Local.zip) · [**Download Cloud v0.6.0 Beta**](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) · [Historical versions v0.1–v0.5](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) · [Complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
+
+[Setup guide](docs/SETUP.md) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/ashwickmc-afk/orderdesk-local/issues)
 
 </div>
 
@@ -16,123 +18,115 @@ A small, open-source business workspace for independent owners who want to keep 
 
 ## Why OrderDesk exists
 
-I started OrderDesk with one straightforward goal: make everyday admin work easier for small business owners.
+I started OrderDesk with one straightforward goal: make the everyday admin work of a small business easier. A home baker should be able to check pending orders and unpaid balances in a few seconds. A tiffin operator should be able to keep daily orders organised. A solo seller should be able to understand product costs and selling prices without wrestling with complicated accounting software.
 
-A home baker should be able to check pending orders and unpaid balances in a few seconds. A tiffin operator should be able to keep daily orders organised. A solo seller should be able to estimate costs, selling prices and profit without opening a complicated accounting package.
-
-OrderDesk is built around a few simple rules:
+OrderDesk follows five simple rules:
 
 - **Keep it simple.** Common tasks should take only a few steps.
-- **Keep it useful.** Every feature should solve a real, recurring problem.
+- **Keep it useful.** Every feature should solve a practical business problem.
 - **Respect the owner's data.** The Local edition keeps records on the owner's device.
 - **Keep control with the owner.** Customers do not need accounts or access to the workspace.
 - **Offer a choice.** Use Local for simplicity or Cloud when cross-device sync is worth the extra setup.
+
+## Download OrderDesk
+
+**Recommended: start with the Local edition.**
+
+1. Download the [Local ZIP](downloads/OrderDesk-v0.6.0-Local.zip), or the [complete repository ZIP](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1).
+2. Extract the ZIP.
+3. Open `apps/local` inside the complete repository, or open the extracted Local package folder.
+4. On Windows, double-click `START_ORDERDESK_WINDOWS.bat`. Python 3 is required.
+5. The app opens at `http://localhost:8765`.
+
+There is no login, backend, API key or cloud setup in Local.
+
+Other downloads: [Cloud edition ZIP — beta](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) · [Historical versions v0.1–v0.5](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
 
 ## Choose your edition
 
 | | Local edition | Cloud edition |
 |---|---|---|
-| Best for | Owners who want a simple, self-contained tool | Owners who need the same workspace on multiple devices |
+| Best for | Owners who want a simple, self-contained tool | Owners who need one workspace across devices |
 | Sign-in | No | Owner account |
-| Data storage | Browser/device only | Supabase database + per-owner device cache |
-| Cross-device sync | Manual backup/restore | Automatic when online |
-| Setup | Simple local server or HTTPS static hosting | Supabase project + Node.js build |
-| Complexity | **Simple** | Advanced |
+| Data storage | Browser/device only | Supabase, with a separate local cache per owner |
+| Cross-device sync | Manual backup/restore | Online sync with revision-conflict protection |
+| Setup | Simple | Advanced one-time setup |
+| Complexity | **Simple** | **Advanced beta** |
 | GST calculator | Included | Included |
 
-**My recommendation:** Start with the **Local edition**. Choose Cloud only when you genuinely need accounts and automatic synchronisation. Neither edition has a customer portal.
+**My recommendation:** choose Local unless automatic cross-device synchronisation is genuinely important. Neither edition has a customer-facing portal.
 
 ## What it helps with
 
-- **Orders:** customer details, items, quantities, delivery dates, status and payment balances.
+- **Orders:** record customers, items, quantities, delivery dates, status and payment balances.
 - **Payment follow-up:** see outstanding amounts and prepare WhatsApp reminders for the owner to review.
-- **Money Book:** record additional income and business expenses.
+- **Money Book:** record additional income and business expenses. Order payments are already recorded on their orders, so do not enter them twice.
 - **Profit calculator:** estimate batch cost, unit cost, break-even price, margin and target selling price.
-- **GST calculator:** estimate tax-inclusive or tax-exclusive totals, with CGST/SGST or IGST display.
-- **Quick calculator:** everyday arithmetic.
-- **Customer list:** view order history, total sales and outstanding balances.
+- **GST calculator:** calculate GST-inclusive or GST-exclusive totals and show CGST + SGST/UTGST or IGST based on the supply type selected by the owner.
+- **Quick calculator:** handle everyday arithmetic.
+- **Customer list:** view order history, repeat customers and balances.
 - **Backups and exports:** JSON backup/restore and CSV exports.
 
-OrderDesk is a lightweight record-keeping tool. It is not a complete accounting, inventory, billing, payroll or tax-filing system.
+OrderDesk is a lightweight record-keeping workspace. It is not a complete accounting, inventory, billing, payroll or tax-filing system.
 
-## Screens and features
+## GST calculator: important limitation
 
-The interface is designed for phone, tablet and desktop browsers. It includes light/dark themes, responsive navigation, readable order views, quick actions and focused calculators. The app can be installed as a Progressive Web App (PWA) when hosted over HTTPS.
+The calculator performs arithmetic only. You must enter the rate that applies and select intra-state or inter-state supply. It does **not** identify the correct GST rate, classify products/services, validate HSN/SAC codes, decide exemptions, calculate input tax credit, produce a statutory invoice or file returns. Verify the correct treatment with official guidance or a qualified tax professional.
 
-## Versions and project history
-
-The project grew through small iterations. Earlier versions are preserved in the complete source package under `archive/`; the current maintained applications are in `apps/`.
-
-| Version | Milestone | What changed |
-|---|---|---|
-| **0.1.0** | First prototype | Initial local order dashboard with basic order entry and status tracking. |
-| **0.2.0** | Expanded order manager | Improved typography and contrast, dark mode, partial payments, customer summaries, delivery visibility, WhatsApp drafts and backup/export improvements. |
-| **0.3.0** | Installable PWA | Added app manifest, icons, app-shell caching and responsive layouts for phone, tablet and desktop. Removed internal order IDs from WhatsApp message text. |
-| **0.4.0** | Cloud experiment | First owner login, Supabase workspace and sync experiment. Preserved as a historical prototype, not the recommended release. |
-| **0.4.1** | Login repair | Fixed form handling and asset-path issues found during the cloud experiment. |
-| **0.5.0** | Local Business Edition | Returned to a no-login, no-backend approach. Added Money Book, quick calculator, profit calculator, payment follow-up and local backup/restore. |
-| **0.6.0 Local** | GST release | Added the GST calculator while keeping the app fully local and account-free. |
-| **0.6.0 Cloud** | Optional cloud beta | Rebuilt the v0.5 workflow as a separate Cloud edition with owner accounts, per-owner access control, sync, cloud snapshots and GST calculator. |
-
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
-
-## Quick start
-
-### Download the complete source
-
-Clone the repository:
-
-```bash
-git clone https://github.com/ashwickmc-afk/orderdesk-local.git
-cd orderdesk-local
-python downloads/download_source.py
-```
-
-The script downloads, verifies and extracts the complete source and historical snapshots into `OrderDesk-v0.6.0-source/`.
-
-### Run the Local edition
-
-1. Open `OrderDesk-v0.6.0-source/apps/local`.
-2. On Windows, double-click `START_ORDERDESK_WINDOWS.bat` (Python 3 required).
-3. Or run `python -m http.server 8765` in that folder.
-4. Open `http://localhost:8765`.
-5. Start adding orders. No registration, API key or cloud setup is needed.
-
-### Run the Cloud edition
-
-Cloud is optional and requires a Supabase project and one-time developer setup. Follow the [Cloud edition setup guide](docs/SETUP.md#cloud-edition). Do not choose Cloud just to use the calculators — Local already includes them.
-
-## GST calculator: important note
-
-The GST tool performs arithmetic only. It does **not** identify the correct GST rate for a product or service, validate an HSN/SAC code, decide whether a supply is taxable/exempt, calculate input tax credit, generate a statutory tax invoice or file a return. Rates and treatment depend on classification, notifications and date of supply. Always verify the applicable treatment using official CBIC/GST Council guidance or a qualified tax professional.
-
-- [CBIC GST goods and services rates](https://cbic-gst.gov.in/gst-goods-services-rates.html)
+- [CBIC GST rates](https://cbic-gst.gov.in/gst-goods-services-rates.html)
 - [CBIC Tax Information Portal](https://taxinformation.cbic.gov.in/)
 - [GST Council](https://gstcouncil.gov.in/)
 
 More details: [docs/GST-RATES.md](docs/GST-RATES.md).
 
+## Versions and project history
+
+Earlier versions are preserved in the [historical releases ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip). v0.6.0 Local is the recommended maintained edition; v0.6.0 Cloud is an optional beta pending live Supabase testing.
+
+| Version | Milestone | Main changes | Download |
+|---|---|---|---|
+| **0.1.0** | First prototype | Local order dashboard, basic order entry, status tracking and CSV export. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.2.0** | Expanded order manager | Improved readability, dark mode, partial payments, customer directory, WhatsApp drafts, delivery tracking and backup/restore. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.3.0** | Installable PWA | Responsive app for PC, laptop, tablet and phone; manifest, offline app shell and app icons. Internal order IDs removed from WhatsApp drafts. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.4.0** | Cloud experiment | First owner login, Supabase storage and cross-device sync prototype. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.4.1** | Login repair | Fixed form handling and asset paths discovered in the early cloud experiment. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.5.0** | Local Business Edition | Removed login/backend; added Money Book, profit and quick calculators, payment follow-up and local backups. | [Historical ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip) |
+| **0.6.0 Local** | GST release | Kept the local-first workflow and added inclusive/exclusive GST arithmetic with intra/inter-state breakdown. | [Local ZIP](downloads/OrderDesk-v0.6.0-Local.zip) |
+| **0.6.0 Cloud Beta** | Optional cloud edition | v0.5-style owner workspace, owner-only cloud data, revision-checked sync, cloud snapshots and GST calculator. | [Cloud ZIP](downloads/OrderDesk-v0.6.0-Cloud-Beta.zip) |
+
+See [CHANGELOG.md](CHANGELOG.md) and [archive/README.md](archive/README.md).
+
 ## Data and privacy
 
 ### Local edition
 
-Records are stored in the current browser profile on the current device using IndexedDB, with a localStorage fallback. The app does not upload business records to a server. Records do not automatically move between devices. Use JSON backup/restore to transfer or protect them. Clearing browser data, resetting a device or losing the device can remove local records.
+Records stay in the browser profile on the current device. They do not automatically sync to a phone or another computer. Use **Backup** on one device and **Restore** on another to transfer records. Clearing browser data or resetting the device can remove local records, so keep a separate backup. When you deliberately open a WhatsApp draft, review it before sending.
 
-When the owner deliberately opens a WhatsApp draft, the browser hands the prepared message to WhatsApp. Review it before sending.
+The Local v0.6 app keeps the same IndexedDB database name as v0.5 so an existing v0.5 workspace in the same browser profile remains accessible.
 
 ### Cloud edition
 
-The Cloud edition sends the owner workspace to the Supabase project configured by the operator. Authentication and Row Level Security (RLS) restrict workspace access to the signed-in owner. Cloud sync requires an internet connection; offline changes remain in that owner's device cache until the next successful sync. A separate local cache is created per signed-in owner on each device. Keep a downloaded backup as an additional recovery copy.
+Cloud stores the signed-in owner's workspace in the Supabase project configured by the operator. Row Level Security (RLS) restricts each account to its own workspace. Cloud saves use a revision check; if another device has changed the workspace, OrderDesk stops automatic uploads instead of silently replacing that version. The app also keeps an owner-specific local cache and offers cloud snapshots/restore.
 
-Read [SECURITY.md](SECURITY.md) before deploying Cloud. Never commit `.env` files or a Supabase service-role key.
+Cloud is a **beta**. It has not been tested against your live Supabase project. Test with fictional records and separate test accounts/devices before using real customer information. Read [SECURITY.md](SECURITY.md) and [apps/cloud/README.md](apps/cloud/README.md). Never commit a Supabase service-role/secret key.
+
+## Development checks
+
+Run the GST tests with:
+
+```bash
+node --test apps/local/tests/*.test.cjs
+```
+
+The Local edition has no runtime dependency installation. Cloud calls Supabase Auth and REST APIs directly from the browser using a public publishable key; RLS is the security boundary.
 
 ## Contributing
 
-Small, focused improvements are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Bug reports should include the edition, browser/device, steps to reproduce and expected behaviour — but never include real customer records, passwords, API keys or private backups.
+Small, focused improvements are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use fictional data in issues and never attach real customer records, passwords or API keys.
 
 ## Licence
 
-OrderDesk is released under the [MIT License](LICENSE). You may use, modify and distribute it under the licence terms.
+OrderDesk is released under the [MIT License](LICENSE).
 
 ---
 
