@@ -5,9 +5,12 @@ const assert = require('node:assert/strict');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'OrderDesk.html'), 'utf8');
 
-assert.ok(html.includes('<title>OrderDesk v0.6.0 — Ready to use</title>'));
+assert.ok(html.includes('<title>OrderDesk v0.7.0 — Simple business workspace</title>'));
 assert.ok(html.includes('id="page-gst"'));
 assert.ok(html.includes('OrderDeskGST'));
+assert.ok(html.includes('OrderDeskCore'), 'standalone file must include the tested data model module');
+assert.ok(html.includes('id="fItems"'), 'standalone file must include multi-item order UI');
+assert.ok(html.includes('id="moneyMonth"'), 'standalone file must include Money Book month filter');
 assert.doesNotMatch(html, /<script\b[^>]*\bsrc=/i, 'standalone file must not load external JavaScript');
 assert.doesNotMatch(html, /<link\b[^>]*rel=["']manifest["']/i, 'file-based app must not depend on a PWA manifest');
 const resourceRefs = [...html.matchAll(/(?:src|href)=["']([^"']+)["']/gi)]
