@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Nivorqen — Simple Business Workspace",
-  "short_name": "Nivorqen",
+  "name": "OrderDesk — Simple Business Workspace",
+  "short_name": "OrderDesk",
   "description": "A private local workspace for orders, payments, expenses, profit and GST calculations.",
   "start_url": "./index.html",
   "scope": "./",
