@@ -1,7 +1,7 @@
 (function (root, factory) {
   const api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
-  if (root) root.OrderDeskGST = api;
+  if (root) root.NivorqenGST = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
   const round2 = value => Math.round((Number(value) + Number.EPSILON) * 100) / 100;
