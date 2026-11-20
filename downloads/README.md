@@ -1,8 +1,8 @@
-# OrderDesk downloads
+# Nivorqen downloads
 
 ## Direct download
 
-[**Download the complete OrderDesk source ZIP from GitHub**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
+[**Download the complete Nivorqen source ZIP from GitHub**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1)
 
 This download includes:
 
