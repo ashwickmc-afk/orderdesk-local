@@ -1,4 +1,4 @@
-# Nivorqen v0.6.0 — Cloud Edition (Beta)
+# OrderDesk v0.6.0 — Cloud Edition (Beta)
 
 The optional advanced edition rebuilds the v0.5 business-owner workflow with owner sign-in, one owner workspace across devices, revision-checked cloud synchronisation, cloud snapshots and the GST calculator. Customers do not receive accounts.
 
@@ -36,4 +36,4 @@ Each authenticated owner has one cloud workspace. RLS restricts access to that o
 
 ## GST
 
-The calculator is an arithmetic aid. The owner enters the applicable rate and type of supply; Nivorqen does not choose the tax treatment. Consult [GST-RATES.md](../../docs/GST-RATES.md) for official references and limitations.
+The calculator is an arithmetic aid. The owner enters the applicable rate and type of supply; OrderDesk does not choose the tax treatment. Consult [GST-RATES.md](../../docs/GST-RATES.md) for official references and limitations.
