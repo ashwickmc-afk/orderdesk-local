@@ -12,9 +12,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Run GST calculator tests
+      - name: Build standalone app from source
+        run: node apps/local/build-standalone.cjs
+      - name: Run Local app regression tests
         run: node --test apps/local/tests/*.test.cjs
-      - name: Check GST helper syntax
-        run: node --check apps/local/gst-calculator.js
-      - name: Check one-file browser launcher
+      - name: Check source and generated JavaScript
         run: node tools/check-standalone.cjs
