@@ -1,6 +1,23 @@
 # Changelog
 
-All notable OrderDesk milestones are listed here. v0.6.0 Local is the recommended maintained edition. v0.6.0 Cloud is an optional beta pending live Supabase testing.
+All notable OrderDesk milestones are listed here. v0.7.0 Local is the recommended maintained edition. v0.6.0 Cloud remains an optional beta pending live Supabase testing.
+
+## 0.7.0 — Data integrity and workflow release
+
+### Local edition
+- Adds dated payment records per order and automatically records received payments as Money Book income.
+- Supports multi-item orders with per-item quantity and unit price.
+- Adds Money Book entry editing, month filtering and pagination for orders and money entries.
+- Adds revision-checked IndexedDB writes and BroadcastChannel refreshes to detect competing tabs instead of silently overwriting newer data.
+- Adds modal focus trapping, Escape handling and focus restoration.
+- Adds an editable default phone country code, cached INR formatting and a last-backup reminder.
+- Adds tested core helpers for normalization, order numbering, CSV parsing/export and restore migration.
+- Generates the standalone `OrderDesk.html` from the Local source and inlines its tested modules.
+
+### Quality checks
+- Adds regression tests for legacy payment migration, multi-item normalization, order-number sequencing, CSV round trips, formula-injection escaping, date validation and payment-income restore migration.
+- GitHub Actions builds the standalone app, runs all Local and GST tests, and validates that the generated launcher has no external asset dependencies.
+- Browser-level interaction testing across browsers and real multi-tab scenarios remains recommended before calling this release production-proven.
 
 ## 0.6.0 — GST release
 
