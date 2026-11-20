@@ -14,6 +14,8 @@ jobs:
           node-version: 22
       - name: Build standalone app from source
         run: node apps/local/build-standalone.cjs
+      - name: Verify committed standalone matches source build
+        run: git diff --exit-code -- OrderDesk.html
       - name: Run Local app regression tests
         run: node --test apps/local/tests/*.test.cjs
       - name: Check source and generated JavaScript
