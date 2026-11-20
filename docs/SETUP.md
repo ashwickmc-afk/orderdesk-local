@@ -1,4 +1,4 @@
-# Nivorqen setup guide
+# OrderDesk setup guide
 
 **Start with Local unless you specifically need cross-device cloud synchronisation.** Both editions are for the business owner; customers do not need accounts.
 
@@ -15,14 +15,14 @@ Use the [direct GitHub source ZIP download](https://github.com/ashwickmc-afk/ord
 1. Download the ZIP from the repository's main README.
 2. Extract the ZIP.
 3. Open the extracted folder.
-4. Double-click **`Nivorqen.html`**.
-5. Nivorqen opens in your default browser. Start using it.
+4. Double-click **`OrderDesk.html`**.
+5. OrderDesk opens in your default browser. Start using it.
 
-You do not need Python, Node.js, a command prompt, an installation wizard or an account. The single `Nivorqen.html` file contains the Local app and GST calculator.
+You do not need Python, Node.js, a command prompt, an installation wizard or an account. The single `OrderDesk.html` file contains the Local app and GST calculator.
 
 ### Browser and data
 
-Use a recent Chrome, Edge, Firefox or Safari browser. Nivorqen saves records in browser storage on the current device. Local-file storage behaviour varies between browsers and may be blocked by privacy settings. The app displays a warning if it cannot save.
+Use a recent Chrome, Edge, Firefox or Safari browser. OrderDesk saves records in browser storage on the current device. Local-file storage behaviour varies between browsers and may be blocked by privacy settings. The app displays a warning if it cannot save.
 
 Use **Backup** regularly. To transfer data from an older copy or to another device, use **Backup** in the old copy, then **Restore** in the new one. The Local edition does not sync automatically between devices.
 
