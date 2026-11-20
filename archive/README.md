@@ -1,4 +1,4 @@
-# Historical Nivorqen releases
+# Historical OrderDesk releases
 
 The repository includes source snapshots and descriptions of the earlier iterations. Historical versions are not maintained; use `apps/local` for the recommended current edition or `apps/cloud` for the optional Cloud beta.
 
