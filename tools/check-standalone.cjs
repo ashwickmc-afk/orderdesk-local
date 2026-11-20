@@ -11,6 +11,10 @@ assert.ok(html.includes('OrderDeskGST'));
 assert.ok(html.includes('OrderDeskCore'), 'standalone file must include the tested data model module');
 assert.ok(html.includes('id="fItems"'), 'standalone file must include multi-item order UI');
 assert.ok(html.includes('id="moneyMonth"'), 'standalone file must include Money Book month filter');
+assert.ok(html.includes('id="fPaymentHistory"'), 'standalone file must include dated payment history');
+assert.ok(html.includes('syncPaymentIncomeEntries'), 'order payments must sync into Money Book income');
+assert.ok(html.includes('revisionMatches'), 'standalone file must include the tested cross-tab revision guard');
+assert.ok(html.includes('id="settingsCountryCode"'), 'standalone file must expose the default phone country code setting');
 assert.doesNotMatch(html, /<script\b[^>]*\bsrc=/i, 'standalone file must not load external JavaScript');
 assert.doesNotMatch(html, /<link\b[^>]*rel=["']manifest["']/i, 'file-based app must not depend on a PWA manifest');
 const resourceRefs = [...html.matchAll(/(?:src|href)=["']([^"']+)["']/gi)]
