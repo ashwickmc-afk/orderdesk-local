@@ -3,11 +3,11 @@ const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 
-const html = fs.readFileSync(path.join(__dirname, '..', 'Nivorqen.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '..', 'OrderDesk.html'), 'utf8');
 
-assert.ok(html.includes('<title>Nivorqen v0.6.0 — Ready to use</title>'));
+assert.ok(html.includes('<title>OrderDesk v0.6.0 — Ready to use</title>'));
 assert.ok(html.includes('id="page-gst"'));
-assert.ok(html.includes('NivorqenGST'));
+assert.ok(html.includes('OrderDeskGST'));
 assert.doesNotMatch(html, /<script\b[^>]*\bsrc=/i, 'standalone file must not load external JavaScript');
 assert.doesNotMatch(html, /<link\b[^>]*rel=["']manifest["']/i, 'file-based app must not depend on a PWA manifest');
 const resourceRefs = [...html.matchAll(/(?:src|href)=["']([^"']+)["']/gi)]
@@ -18,6 +18,6 @@ assert.deepEqual(resourceRefs, [], 'standalone HTML must not depend on separate 
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 assert.ok(scripts.length >= 2, 'GST and application scripts should both be inlined');
 for (const [index, match] of scripts.entries()) {
-  new vm.Script(match[1], { filename: 'Nivorqen.html:inline-script-' + (index + 1) });
+  new vm.Script(match[1], { filename: 'OrderDesk.html:inline-script-' + (index + 1) });
 }
-console.log('Standalone Nivorqen.html: one-file dependency check passed; all inline scripts parse.');
+console.log('Standalone OrderDesk.html: one-file dependency check passed; all inline scripts parse.');
