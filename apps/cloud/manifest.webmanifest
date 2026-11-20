@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "OrderDesk — Cloud Edition",
-  "short_name": "OrderDesk Cloud",
+  "name": "Nivorqen — Cloud Edition",
+  "short_name": "Nivorqen Cloud",
   "description": "An optional cloud workspace for business owners to manage orders, payments, expenses, profit and GST.",
   "start_url": "./index.html",
   "scope": "./",
