@@ -7,7 +7,7 @@ const html = fs.readFileSync(path.join(__dirname, '..', 'Nivorqen.html'), 'utf8'
 
 assert.ok(html.includes('<title>Nivorqen v0.6.0 — Ready to use</title>'));
 assert.ok(html.includes('id="page-gst"'));
-assert.ok(html.includes('OrderDeskGST'));
+assert.ok(html.includes('NivorqenGST'));
 assert.doesNotMatch(html, /<script\b[^>]*\bsrc=/i, 'standalone file must not load external JavaScript');
 assert.doesNotMatch(html, /<link\b[^>]*rel=["']manifest["']/i, 'file-based app must not depend on a PWA manifest');
 const resourceRefs = [...html.matchAll(/(?:src|href)=["']([^"']+)["']/gi)]
