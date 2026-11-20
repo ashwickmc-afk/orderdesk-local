@@ -1,4 +1,4 @@
-name: OrderDesk checks
+name: Nivorqen checks
 
 on:
   push:
