@@ -1,6 +1,6 @@
 <div align="center">
 
-# OrderDesk
+# Nivorqen
 
 ### Simple business management. No unnecessary complexity.
 
@@ -8,7 +8,7 @@
 
 A practical workspace for independent business owners who want to manage orders, payments, expenses and pricing without wrestling with complicated software.
 
-[**Download ZIP — extract and double-click `OrderDesk.html`**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1) · [Cloud edition — optional beta](apps/cloud/) · [Version history](archive/README.md)
+[**Download ZIP — extract and double-click `Nivorqen.html`**](https://github.com/ashwickmc-afk/orderdesk-local/archive/refs/heads/main.zip?download=1) · [Cloud edition — optional beta](apps/cloud/) · [Version history](archive/README.md)
 
 [Setup guide](docs/SETUP.md) · [Version history](CHANGELOG.md) · [Report a bug](https://github.com/ashwickmc-afk/orderdesk-local/issues)
 
@@ -16,11 +16,11 @@ A practical workspace for independent business owners who want to manage orders,
 
 ---
 
-## Why OrderDesk exists
+## Why Nivorqen exists
 
-I started OrderDesk with one straightforward goal: make the everyday admin work of a small business easier. A home baker should be able to check pending orders and unpaid balances in a few seconds. A tiffin operator should be able to keep daily orders organised. A solo seller should be able to understand product costs and selling prices without wrestling with complicated accounting software.
+I started Nivorqen with one straightforward goal: make the everyday admin work of a small business easier. A home baker should be able to check pending orders and unpaid balances in a few seconds. A tiffin operator should be able to keep daily orders organised. A solo seller should be able to understand product costs and selling prices without wrestling with complicated accounting software.
 
-OrderDesk follows five simple rules:
+Nivorqen follows five simple rules:
 
 - **Keep it simple.** Common tasks should take only a few steps.
 - **Keep it useful.** Every feature should solve a practical business problem.
@@ -28,7 +28,7 @@ OrderDesk follows five simple rules:
 - **Keep control with the owner.** Customers do not need accounts or access to the workspace.
 - **Offer a choice.** Use Local for simplicity or Cloud when cross-device sync is worth the extra setup.
 
-## Download and open OrderDesk
+## Download and open Nivorqen
 
 *On a Windows or Mac computer:*
 
@@ -36,15 +36,15 @@ OrderDesk follows five simple rules:
 
 1. Click the big **Download ZIP** link at the top of this README.
 2. Extract the ZIP you downloaded.
-3. Open the extracted folder and double-click **`OrderDesk.html`**.
+3. Open the extracted folder and double-click **`Nivorqen.html`**.
 
-OrderDesk opens in your default browser. That is all you need to do.
+Nivorqen opens in your default browser. That is all you need to do.
 
-The single `OrderDesk.html` file contains the Local app and its GST calculator. You do not need to open the `apps` folder, install anything, connect to the internet, or run a command.
+The single `Nivorqen.html` file contains the Local app and its GST calculator. You do not need to open the `apps` folder, install anything, connect to the internet, or run a command.
 
 **Use the Local edition for the simple experience.** The Cloud edition is separate and optional; it requires a Supabase account/project and technical setup.
 
-**Browser note:** Use a recent version of Chrome, Edge, Firefox or Safari. Local-file storage rules differ between browsers and can be blocked by privacy settings. OrderDesk displays a warning if it cannot save locally. Use **Backup** regularly to protect your records.
+**Browser note:** Use a recent version of Chrome, Edge, Firefox or Safari. Local-file storage rules differ between browsers and can be blocked by privacy settings. Nivorqen displays a warning if it cannot save locally. Use **Backup** regularly to protect your records.
 ## Choose your edition
 
 | | Local edition | Cloud edition |
@@ -70,7 +70,7 @@ The single `OrderDesk.html` file contains the Local app and its GST calculator. 
 - **Customer list:** view order history, repeat customers and balances.
 - **Backups and exports:** JSON backup/restore and CSV exports.
 
-OrderDesk is a lightweight record-keeping workspace. It is not a complete accounting, inventory, billing, payroll or tax-filing system.
+Nivorqen is a lightweight record-keeping workspace. It is not a complete accounting, inventory, billing, payroll or tax-filing system.
 
 ## GST calculator: important limitation
 
@@ -109,7 +109,7 @@ The app keeps the v0.5 IndexedDB database name. However, browsers may keep stora
 
 ### Cloud edition
 
-Cloud stores the signed-in owner's workspace in the Supabase project configured by the operator. Row Level Security (RLS) restricts each account to its own workspace. Cloud saves use a revision check; if another device has changed the workspace, OrderDesk stops automatic uploads instead of silently replacing that version. The app also keeps an owner-specific local cache and offers cloud snapshots/restore.
+Cloud stores the signed-in owner's workspace in the Supabase project configured by the operator. Row Level Security (RLS) restricts each account to its own workspace. Cloud saves use a revision check; if another device has changed the workspace, Nivorqen stops automatic uploads instead of silently replacing that version. The app also keeps an owner-specific local cache and offers cloud snapshots/restore.
 
 Cloud is a **beta**. It has not been tested against your live Supabase project. Test with fictional records and separate test accounts/devices before using real customer information. Read [SECURITY.md](SECURITY.md) and [apps/cloud/README.md](apps/cloud/README.md). Never commit a Supabase service-role/secret key.
 
@@ -129,7 +129,7 @@ Small, focused improvements are welcome. Please read [CONTRIBUTING.md](CONTRIBUT
 
 ## Licence
 
-OrderDesk is released under the [MIT License](LICENSE).
+Nivorqen is released under the [MIT License](LICENSE).
 
 ---
 
