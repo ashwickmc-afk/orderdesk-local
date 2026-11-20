@@ -1,6 +1,6 @@
 # Changelog
 
-All notable OrderDesk milestones are listed here. v0.6.0 Local is the recommended maintained edition. v0.6.0 Cloud is an optional beta pending live Supabase testing.
+All notable Nivorqen milestones are listed here. v0.6.0 Local is the recommended maintained edition. v0.6.0 Cloud is an optional beta pending live Supabase testing.
 
 ## 0.6.0 — GST release
 
@@ -45,4 +45,4 @@ All notable OrderDesk milestones are listed here. v0.6.0 Local is the recommende
 ## 0.1.0 — First prototype
 - Basic local order dashboard, order-status tracking and CSV export.
 
-Historical snapshots are preserved in [archive/README.md](archive/README.md) and the [historical release ZIP](downloads/OrderDesk-Historical-Versions-v0.1-to-v0.5.zip).
+Historical snapshots are preserved in [archive/README.md](archive/README.md) and the [historical release ZIP](downloads/Nivorqen-Historical-Versions-v0.1-to-v0.5.zip).
