@@ -1,4 +1,4 @@
-# OrderDesk v0.6.0 — Local Edition
+# Nivorqen v0.6.0 — Local Edition
 
 **Keep it simple. Keep it better.**
 
@@ -6,7 +6,7 @@ This is the recommended no-login edition for business owners. The quickest way t
 
 1. Download the ZIP from the main [README](../../).
 2. Extract it.
-3. Double-click **`OrderDesk.html`** in the extracted folder.
+3. Double-click **`Nivorqen.html`** in the extracted folder.
 
 It opens in your default browser. No command prompt, Python, Node.js, installation or account is required.
 
@@ -21,8 +21,8 @@ It opens in your default browser. No command prompt, Python, Node.js, installati
 
 ## Browser and data notes
 
-Use a recent Chrome, Edge, Firefox or Safari browser. The app stores records in browser storage on the current device. Browser privacy settings can block local storage, and browsers do not define identical storage behaviour for local HTML files. OrderDesk displays a warning if saving is unavailable.
+Use a recent Chrome, Edge, Firefox or Safari browser. The app stores records in browser storage on the current device. Browser privacy settings can block local storage, and browsers do not define identical storage behaviour for local HTML files. Nivorqen displays a warning if saving is unavailable.
 
 Use **Backup** regularly and keep the downloaded JSON backup somewhere safe. To move records to a new copy or another device, use **Backup** in the old copy and **Restore** in the new one. The app does not synchronise Local records between devices.
 
-The root `OrderDesk.html` file is self-contained. `index.html`, the manifest and service worker in this folder are the maintained web/PWA source for HTTPS hosting and development.
+The root `Nivorqen.html` file is self-contained. `index.html`, the manifest and service worker in this folder are the maintained web/PWA source for HTTPS hosting and development.
