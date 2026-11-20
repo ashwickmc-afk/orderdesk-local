@@ -218,13 +218,6 @@ function paymentStatus(o){return OrderDeskCore.paymentStatus(o)}
 function activeOrders(){return workspace.orders.filter(o=>o.status!=='Cancelled')}
 function monthKey(d=todayISO()){return d.slice(0,7)}
 function monthEntries(type,month=$('moneyMonth')?.value||monthKey()){return workspace.entries.filter(e=>e.date.slice(0,7)===month&&(!type||e.type===type))}
-function syncPaymentIncomeEntries(){const known=new Set(workspace.entries.map(e=>e.sourcePaymentId).filter(Boolean));workspace.orders.forEach(o=>(o.payments||[]).forEach(p=>{if(!known.has(p.id)){workspace.entries.unshift(normalizeEntry({id:uid(),sourcePaymentId:p.id,type:'income',description:'Payment received · '+o.orderNo,category:'Order payment',amount:p.amount,date:p.date,createdAt:p.createdAt}));known.add(p.id)}}))}
-function addPaymentIncome(order,payment){workspace.entries.unshift(normalizeEntry({id:uid(),sourcePaymentId:payment.id,type:'income',description:'Payment received · '+order.orderNo,category:'Order payment',amount:payment.amount,date:payment.date,createdAt:payment.createdAt}))}
-function getDue(o){return Math.max(0,(Number(o.amount)||0)-(Number(o.amountPaid)||0))}
-function paymentStatus(o){const d=getDue(o);if(d<=0)return 'Paid';if(o.amountPaid>0)return 'Partial';return 'Unpaid'}
-function activeOrders(){return workspace.orders.filter(o=>o.status!=='Cancelled')}
-function monthKey(d=todayISO()){return d.slice(0,7)}
-function monthEntries(type){return workspace.entries.filter(e=>e.date.slice(0,7)===monthKey()&&(!type||e.type===type))}
 function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window)){reject(new Error('IndexedDB not available'));return}const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains(STORE))d.createObjectStore(STORE)};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('Could not open local database'))})}
 function idbGet(){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),req=tx.objectStore(STORE).get('main');req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error)})}
 function idbPut(data){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(data,'main');tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('Save was interrupted'))})}
