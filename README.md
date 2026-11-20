@@ -61,14 +61,16 @@ The single `OrderDesk.html` file contains the Local app and its GST calculator. 
 
 ## What it helps with
 
-- **Orders:** record customers, items, quantities, delivery dates, status and payment balances.
+- **Orders:** record customers, multiple line items, quantities, unit prices, delivery dates and status.
+- **Payment history:** record each payment with its date; received payments appear automatically as income in the Money Book.
 - **Payment follow-up:** see outstanding amounts and prepare WhatsApp reminders for the owner to review.
-- **Money Book:** record additional income and business expenses. Order payments are already recorded on their orders, so do not enter them twice.
+- **Money Book:** record and edit other income and expenses, filter by month, and review automatically generated order-payment income. Do not enter those payments twice.
 - **Profit calculator:** estimate batch cost, unit cost, break-even price, margin and target selling price.
 - **GST calculator:** calculate GST-inclusive or GST-exclusive totals and show CGST + SGST/UTGST or IGST based on the supply type selected by the owner.
 - **Quick calculator:** handle everyday arithmetic.
 - **Customer list:** view order history, repeat customers and balances.
-- **Backups and exports:** JSON backup/restore and CSV exports.
+- **Backups and exports:** JSON backup/restore, CSV exports, and a reminder showing when the last backup was recorded.
+- **Data protection:** revision-checked saves reduce the risk of two tabs silently overwriting each other; order and Money Book lists are paginated.
 
 OrderDesk is a lightweight record-keeping workspace. It is not a complete accounting, inventory, billing, payroll or tax-filing system.
 
