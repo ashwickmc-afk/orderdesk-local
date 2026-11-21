@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'OrderDesk.html'), 'utf8');
 
-assert.ok(html.includes('<title>OrderDesk v0.7.0 — Simple business workspace</title>'));
+assert.ok(html.includes('<title>OrderDesk v0.7.1 — Simple business workspace</title>'));
 assert.ok(html.includes('id="page-gst"'));
 assert.ok(html.includes('OrderDeskGST'));
 assert.ok(html.includes('OrderDeskCore'), 'standalone file must include the tested data model module');
