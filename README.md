@@ -86,7 +86,7 @@ More details: [docs/GST-RATES.md](docs/GST-RATES.md).
 
 ## Versions and project history
 
-Older source snapshots are preserved in `archive/releases/` inside the complete source ZIP. v0.6.0 Local is the recommended maintained edition; v0.6.0 Cloud is an optional beta pending live Supabase testing.
+Older source snapshots are preserved in `archive/releases/` inside the complete source ZIP. v0.7.1 Local is the recommended maintained edition; v0.6.0 Cloud is an optional beta pending live Supabase testing.
 
 | Version | Milestone | Main changes | Download |
 |---|---|---|---|
@@ -96,7 +96,7 @@ Older source snapshots are preserved in `archive/releases/` inside the complete 
 | **0.4.0** | Cloud experiment | First owner login, Supabase storage and cross-device sync prototype. | [Archive](archive/releases/) |
 | **0.4.1** | Login repair | Fixed form handling and asset paths discovered in the early cloud experiment. | [Archive](archive/releases/) |
 | **0.5.0** | Local Business Edition | Removed login/backend; added Money Book, profit and quick calculators, payment follow-up and local backups. | [Archive](archive/releases/) |
-| **0.6.0 Local** | GST release | Kept the local-first workflow and added inclusive/exclusive GST arithmetic with intra/inter-state breakdown. | [Local source](apps/local/) |
+| **0.7.1 Local** | Reliability patch | Fixes Money Book invalid-entry handling, preserves in-progress Settings edits, strengthens calculator edge cases and CSV formula-safe restore; backup reminders now surface after 7 days. | [Local source](apps/local/) |\n| **0.6.0 Local** | GST release | Kept the local-first workflow and added inclusive/exclusive GST arithmetic with intra/inter-state breakdown. | [Local source](apps/local/) |
 | **0.6.0 Cloud Beta** | Optional cloud edition | v0.5-style owner workspace, owner-only cloud data, revision-checked sync, cloud snapshots and GST calculator. | [Cloud source](apps/cloud/) |
 
 See [CHANGELOG.md](CHANGELOG.md) and [archive/README.md](archive/README.md).
