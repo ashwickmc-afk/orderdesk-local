@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.1 — Reliability patch
+- Prevents invalid Money Book entries from inserting `null` and breaking later renders.
+- Preserves unsaved Business name typing during unrelated renders.
+- Adds a 7-day backup reminder to the Overview attention list and Settings reminder.
+- Corrects calculator backspace behavior and distinguishes divide-by-zero from other calculation errors.
+- Restores CSV formula-protection prefixes on import without stripping ordinary apostrophes.
+- Adds regression coverage for zero-value order status and malicious delivery values.
+
+
 All notable OrderDesk milestones are listed here. v0.7.0 Local is the recommended maintained edition. v0.6.0 Cloud remains an optional beta pending live Supabase testing.
 
 ## 0.7.0 — Data integrity and workflow release
