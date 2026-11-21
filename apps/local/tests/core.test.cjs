@@ -15,5 +15,5 @@ test('workspace revision guard rejects stale tabs',()=>{assert.equal(Core.revisi
 
 test('zero-value orders are Paid',()=>{assert.equal(Core.paymentStatus(Core.normalizeOrder({amount:0,item:'Sample'})),'Paid')});
 test('malicious delivery values are rejected during normalization',()=>{const o=Core.normalizeOrder({item:'Cake',amount:10,delivery:'<img src=x onerror=alert(1)>'});assert.equal(o.delivery,'')});
-test('CSV import strips only the formula-protection prefix',()=>{const csv='ORDERNO,CUSTOMER,ITEM,AMOUNT,CREATEDAT\\nOD-1,\'=SUM(A1),Cake,10,2026-11-21T10:00:00.000Z';const o=Core.parseOrdersCsv(csv)[0];assert.equal(o.customer,'=SUM(A1)');assert.equal(o.orderNo,'OD-1')});
-test('CSV import still preserves a literal apostrophe not used for formula protection',()=>{const csv='ORDERNO,CUSTOMER,ITEM,AMOUNT\\nOD-2,\'s-House,Cake,10';const o=Core.parseOrdersCsv(csv)[0];assert.equal(o.customer,"'s-House")});
+test('CSV import strips only the formula-protection prefix',()=>{const csv='ORDERNO,CUSTOMER,ITEM,AMOUNT,CREATEDAT\nOD-1,\'=SUM(A1),Cake,10,2026-11-21T10:00:00.000Z';const o=Core.parseOrdersCsv(csv)[0];assert.equal(o.customer,'=SUM(A1)');assert.equal(o.orderNo,'OD-1')});
+test('CSV import still preserves a literal apostrophe not used for formula protection',()=>{const csv='ORDERNO,CUSTOMER,ITEM,AMOUNT\nOD-2,\'s-House,Cake,10';const o=Core.parseOrdersCsv(csv)[0];assert.equal(o.customer,"'s-House")});
